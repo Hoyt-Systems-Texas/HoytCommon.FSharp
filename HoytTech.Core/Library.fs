@@ -17,9 +17,16 @@ module ResultMonad =
         | Busy -> Busy
         | AccessDenied -> AccessDenied
         
-type ResultMonadBuilder() =
-    member x.Bind(comp, func) = ResultMonad.bind comp func
-    member x.Result(v) = ResultMonad.Success v
+    type ResultMonadBuilder() =
+        member x.Bind(comp, func) = bind comp func
+        member x.Result(v) = Success v
+        
+module Clock =
+    open HoytTech.CSharp
     
+    let timeInFrequency =
+        SystemCalls.GetTimestamp
         
-        
+    let millsToFrequency mills =
+        SystemCalls.MillsToFrequency mills
+  

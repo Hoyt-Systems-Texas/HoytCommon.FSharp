@@ -9,4 +9,8 @@
         <Compile Include="Validation.fs" />
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\HoytTech.CSharp\HoytTech.CSharp.csproj" />
+    </ItemGroup>
+
 </Project>
