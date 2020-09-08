@@ -52,6 +52,7 @@ module Cell =
 type t<'a> = {
     mask: int64
     buffer: Cell.t<'a> array
+    length: int64
 }
 
 let make pos =
@@ -65,6 +66,7 @@ let make pos =
     {
         mask = int64 mask
         buffer = buffer
+        length = int64 length
     }
         
 
@@ -95,3 +97,6 @@ let empty t pos =
     let pos = calculatePos t pos
     let cell = t.buffer.[pos]
     Cell.empty cell
+
+let length t =
+    t.length

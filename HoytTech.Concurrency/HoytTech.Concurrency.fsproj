@@ -6,9 +6,12 @@
 
     <ItemGroup>
         <Compile Include="Library.fs" />
-        <Compile Include="MpscQueue.fs" />
         <Compile Include="ConcurrentRingBuffer.fsi" />
         <Compile Include="ConcurrentRingBuffer.fs" />
+        <Compile Include="Padding.fsi" />
+        <Compile Include="Padding.fs" />
+        <Compile Include="Queue.fsi" />
+        <Compile Include="Queue.fs" />
     </ItemGroup>
 
     <ItemGroup>

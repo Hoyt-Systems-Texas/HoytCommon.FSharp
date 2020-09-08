@@ -33,6 +33,11 @@ val hasValue: t<'a> -> int64 -> bool
 /// <returns>True if the value is empty.</returns>
 val empty: t<'a> -> int64 -> bool
 
+/// Gets the length of the buffer.
+/// <param name="buffer">The buffer to get the size for.</param>
+/// <returns>The size of the value.</returns>
+val length: t<'a> -> int64
+
 
 
     
