@@ -2,6 +2,8 @@ module HoytTech.Concurrency.ConcurrentRingBuffer
 
 type t<'a>
 
+val make : int32 -> t<'a>
+
 /// Set the value in the record buffer.
 /// <param name="buffer">The buffer to write to.</param>
 /// <param name="pos">The position to write in the buffer.</param>
@@ -37,8 +39,4 @@ val empty: t<'a> -> int64 -> bool
 /// <param name="buffer">The buffer to get the size for.</param>
 /// <returns>The size of the value.</returns>
 val length: t<'a> -> int64
-
-
-
-    
 

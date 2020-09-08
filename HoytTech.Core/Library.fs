@@ -33,7 +33,7 @@ module Clock =
 module PowerOf2 =
     
     let round value =
-        HoytTech.CSharp.PowerOfTwo.RoundToPowerOfTwo value
+        int32 <| HoytTech.CSharp.PowerOfTwo.RoundToPowerOfTwo value
         
     let isPowerOfTwo value =
         HoytTech.CSharp.PowerOfTwo.IsPowerOfTwo value

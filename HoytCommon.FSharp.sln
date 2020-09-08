@@ -12,6 +12,8 @@ Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "HoytTech.Core.Test", "HoytT
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HoytTech.CSharp", "HoytTech.CSharp\HoytTech.CSharp.csproj", "{EE08CD03-FE4E-4F33-9BFB-6A1FEB1DCC44}"
 EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "HoytTech.Concurrency.Test", "HoytTech.Concurrency.Test\HoytTech.Concurrency.Test.fsproj", "{86EA03DC-758B-4137-BCD1-AE0DBB8AA059}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -38,8 +40,13 @@ Global
 		{EE08CD03-FE4E-4F33-9BFB-6A1FEB1DCC44}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EE08CD03-FE4E-4F33-9BFB-6A1FEB1DCC44}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EE08CD03-FE4E-4F33-9BFB-6A1FEB1DCC44}.Release|Any CPU.Build.0 = Release|Any CPU
+		{86EA03DC-758B-4137-BCD1-AE0DBB8AA059}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86EA03DC-758B-4137-BCD1-AE0DBB8AA059}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86EA03DC-758B-4137-BCD1-AE0DBB8AA059}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86EA03DC-758B-4137-BCD1-AE0DBB8AA059}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{B6B5DEF0-B75A-4FBD-9AC9-AB1A00F08EAC} = {A0AF4BCA-3EC3-4F96-AF41-E76589041621}
+		{86EA03DC-758B-4137-BCD1-AE0DBB8AA059} = {A0AF4BCA-3EC3-4F96-AF41-E76589041621}
 	EndGlobalSection
 EndGlobal
