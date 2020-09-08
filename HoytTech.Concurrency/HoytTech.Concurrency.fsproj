@@ -5,7 +5,14 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <Compile Include="Library.fs"/>
+        <Compile Include="Library.fs" />
+        <Compile Include="MpscQueue.fs" />
+        <Compile Include="ConcurrentRingBuffer.fsi" />
+        <Compile Include="ConcurrentRingBuffer.fs" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\HoytTech.Core\HoytTech.Core.fsproj" />
     </ItemGroup>
 
 </Project>

@@ -29,4 +29,12 @@ module Clock =
         
     let millsToFrequency mills =
         SystemCalls.MillsToFrequency mills
+        
+module PowerOf2 =
+    
+    let round value =
+        HoytTech.CSharp.PowerOfTwo.RoundToPowerOfTwo value
+        
+    let isPowerOfTwo value =
+        HoytTech.CSharp.PowerOfTwo.IsPowerOfTwo value
   
