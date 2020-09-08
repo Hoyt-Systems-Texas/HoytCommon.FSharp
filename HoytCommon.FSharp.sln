@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "HoytTech.Core", "HoytTech.Core\HoytTech.Core.fsproj", "{48855B2C-85C3-4EAF-AB64-CE745DF35511}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "HoytTech.Concurrency", "HoytTech.Concurrency\HoytTech.Concurrency.fsproj", "{DFD11685-7015-4C4A-B582-9E5419FF04AA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{A0AF4BCA-3EC3-4F96-AF41-E76589041621}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "HoytTech.Messaging", "HoytTech.Messaging\HoytTech.Messaging.fsproj", "{29141FA8-F190-4ABC-9957-6CCAC72FE093}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{48855B2C-85C3-4EAF-AB64-CE745DF35511}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48855B2C-85C3-4EAF-AB64-CE745DF35511}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48855B2C-85C3-4EAF-AB64-CE745DF35511}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48855B2C-85C3-4EAF-AB64-CE745DF35511}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DFD11685-7015-4C4A-B582-9E5419FF04AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DFD11685-7015-4C4A-B582-9E5419FF04AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DFD11685-7015-4C4A-B582-9E5419FF04AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DFD11685-7015-4C4A-B582-9E5419FF04AA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{29141FA8-F190-4ABC-9957-6CCAC72FE093}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29141FA8-F190-4ABC-9957-6CCAC72FE093}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29141FA8-F190-4ABC-9957-6CCAC72FE093}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29141FA8-F190-4ABC-9957-6CCAC72FE093}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
