@@ -78,3 +78,31 @@ type QueueTestClass () =
             
         for thread in writeThreads do
             Assert.IsTrue(thread.Join(4000))
+
+[<TestFixture>]
+type SkipQueueTest () =
+    
+    [<Test>]
+    member this.pollTest() =
+        let queue = SkipQueue.make 64 32
+        Assert.IsTrue(SkipQueue.offer queue 1)
+        Assert.IsTrue(SkipQueue.offer queue 2)
+        Assert.AreEqual(Some(1), SkipQueue.poll queue)
+        Assert.AreEqual(Some(2), SkipQueue.poll queue)
+        
+    [<Test>]
+    member this.skipTest() =
+        let queue = SkipQueue.make 64 32
+        Assert.IsTrue(SkipQueue.offer queue 1)
+        Assert.IsTrue(SkipQueue.defer queue 4)
+        Assert.IsTrue(SkipQueue.defer queue 5)
+        Assert.IsTrue(SkipQueue.offer queue 2)
+        Assert.IsTrue(SkipQueue.offer queue 3)
+        
+        Assert.AreEqual(Some(1), SkipQueue.poll queue)
+        Assert.AreEqual(Some(2), SkipQueue.poll queue)
+        SkipQueue.reset queue
+        Assert.AreEqual(Some(4), SkipQueue.poll queue)
+        Assert.AreEqual(Some(5), SkipQueue.poll queue)
+        Assert.AreEqual(Some(3), SkipQueue.poll queue)
+        

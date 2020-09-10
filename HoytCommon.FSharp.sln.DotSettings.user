@@ -5,5 +5,8 @@
     &lt;TestId&gt;NUnit3x::86EA03DC-758B-4137-BCD1-AE0DBB8AA059::.NETCoreApp,Version=v3.1::HoytTech.Concurrency.Test.QueueTest+QueueTestClass.AFillTest&lt;/TestId&gt;
     &lt;TestId&gt;NUnit3x::86EA03DC-758B-4137-BCD1-AE0DBB8AA059::.NETCoreApp,Version=v3.1::HoytTech.Concurrency.Test.QueueTest+QueueTestClass.TakeTest&lt;/TestId&gt;
     &lt;TestId&gt;NUnit3x::86EA03DC-758B-4137-BCD1-AE0DBB8AA059::.NETCoreApp,Version=v3.1::HoytTech.Concurrency.Test.QueueTest+QueueTestClass.BrutualTest&lt;/TestId&gt;
+    &lt;TestId&gt;NUnit3x::86EA03DC-758B-4137-BCD1-AE0DBB8AA059::.NETCoreApp,Version=v3.1::HoytTech.Concurrency.Test.QueueTest+QueueTestClass&lt;/TestId&gt;
+    &lt;TestId&gt;NUnit3x::86EA03DC-758B-4137-BCD1-AE0DBB8AA059::.NETCoreApp,Version=v3.1::HoytTech.Concurrency.Test.QueueTest+SkipQueueTest.pollTest&lt;/TestId&gt;
+    &lt;TestId&gt;NUnit3x::86EA03DC-758B-4137-BCD1-AE0DBB8AA059::.NETCoreApp,Version=v3.1::HoytTech.Concurrency.Test.QueueTest+SkipQueueTest.skipTest&lt;/TestId&gt;
   &lt;/TestAncestor&gt;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

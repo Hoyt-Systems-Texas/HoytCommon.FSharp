@@ -1,5 +1,6 @@
 module HoytTech.Concurrency.Queue
 
+open System.Runtime.InteropServices
 open HoytTech.Concurrency.Padding
 
 module Mpmc =
@@ -69,4 +70,41 @@ module Mpmc =
         ConcurrentRingBuffer.get t.buffer cIndex
             
                 
-            
+module SkipQueue =
+    
+    type whichQueue =
+        | Primary
+        | Secondary
+    
+    type t<'a> = {
+        primary: Mpmc.t<'a>
+        skip: Mpmc.t<'a>
+        queue: whichQueue ref
+    }
+    
+    let make queueSize skipSize =
+        {
+            primary = Mpmc.make queueSize
+            skip = Mpmc.make skipSize
+            queue = ref Primary 
+        }
+        
+    let offer t value =
+        Mpmc.offer t.primary value
+        
+    let poll t =
+        match !t.queue with
+        | Primary -> Mpmc.poll t.primary
+        | Secondary ->
+            match Mpmc.poll t.skip with
+            | Some(a) -> Some(a)
+            | None ->
+                t.queue := Primary
+                Mpmc.poll t.primary
+
+    let defer t value =
+        Mpmc.offer t.skip value
+                
+    let reset t =
+        t.queue := Secondary
+        
