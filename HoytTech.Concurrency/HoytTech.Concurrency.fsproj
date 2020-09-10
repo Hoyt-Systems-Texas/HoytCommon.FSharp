@@ -12,6 +12,8 @@
         <Compile Include="Padding.fs" />
         <Compile Include="Queue.fsi" />
         <Compile Include="Queue.fs" />
+        <Compile Include="Agent.fsi" />
+        <Compile Include="Agent.fs" />
     </ItemGroup>
 
     <ItemGroup>
