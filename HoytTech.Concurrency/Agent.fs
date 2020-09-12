@@ -4,6 +4,7 @@ open System
 open System.Threading
 open System.Threading.Tasks
 open HoytTech.Concurrency.Queue
+open HoytTech.Core
 
 module AgentFunctor =
     
@@ -25,14 +26,17 @@ module AgentFunctor =
         value: 'a ref
         queue: Mpmc.t<'a -> unit>
         state: state ref
+        lastRan: int64 ref
     }
     
     let make size id value =
+        let lastRan = Clock.timeInFrequency ()
         {
             id = id
             value = ref value
             queue = Mpmc.make size
             state = ref Inactive
+            lastRan = ref lastRan
         }
         
     
@@ -42,6 +46,7 @@ module AgentFunctor =
                 match Mpmc.poll t.queue with
                 | Some(a) ->
                     a !t.value
+                    t.lastRan := Clock.timeInFrequency ()
                     loop ()
                 | None -> Volatile.Write(t.state, Inactive)
             loop ()
