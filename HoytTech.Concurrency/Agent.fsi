@@ -34,3 +34,5 @@ module AgentFunctor =
     /// <returns>The task with the result.</returns>
     val map<'id, 'a, 'r> : t<'id, 'a> -> result<'a, 'r> -> Task<result<'r>>
     
+    val timeSinceRanMs: t<'id, 'a> -> int64
+    

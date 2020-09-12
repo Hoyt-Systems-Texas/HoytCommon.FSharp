@@ -10,11 +10,11 @@ type AgentTest () =
     
     [<Test>]
     member this.AgentRunTest() =
-        let agent = AgentFunctor.make 0x10 1 "hi"
+        let agent = make 0x10 1 "hi"
         async {
-            let! (agent, result) = AgentFunctor.fmap agent (fun a -> a + " Matt") |> Async.AwaitTask
-            Assert.AreEqual(AgentFunctor.Success("hi Matt"), result)
+            let! (agent, result) = fmap agent (fun a -> a + " Matt") |> Async.AwaitTask
+            Assert.AreEqual(Success("hi Matt"), result)
             let! (agent, result) = fmap agent (fun a -> a + " again") |> Async.AwaitTask
             Assert.AreEqual(Success("hi Matt again"), result)
+            Assert.IsTrue(timeSinceRanMs agent > 0L)
         } |> Async.RunSynchronously
-    

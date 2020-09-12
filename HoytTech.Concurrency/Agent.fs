@@ -88,5 +88,8 @@ module AgentFunctor =
             task.SetResult(Full)
             task.Task
                 
+    let timeSinceRanMs t =
+        Clock.millsToFrequency (Clock.timeInFrequency () - !t.lastRan)
+        
         
             
