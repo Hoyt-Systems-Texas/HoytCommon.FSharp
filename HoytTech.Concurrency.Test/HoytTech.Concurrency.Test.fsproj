@@ -15,6 +15,7 @@
 
     <ItemGroup>
         <Compile Include="QueueTest.fs" />
+        <Compile Include="AgentTest.fs" />
         <Compile Include="Program.fs" />
     </ItemGroup>
 
