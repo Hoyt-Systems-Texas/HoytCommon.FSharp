@@ -46,7 +46,7 @@ module AgentFunctor =
                 match Mpmc.poll t.queue with
                 | Some(a) ->
                     a !t.value
-                    t.lastRan := Clock.timeInFrequency ()
+                    Volatile.Write(t.lastRan, Clock.timeInFrequency ())
                     loop ()
                 | None -> Volatile.Write(t.state, Inactive)
             loop ()
@@ -89,7 +89,7 @@ module AgentFunctor =
             task.Task
                 
     let timeSinceRanMs t =
-        Clock.millsToFrequency (Clock.timeInFrequency () - !t.lastRan)
+        Clock.millsToFrequency (Clock.timeInFrequency () - Volatile.Read(t.lastRan))
         
         
             
