@@ -1,7 +1,5 @@
 module HoytTech.Concurrency.Test.AgentTest
 
-open HoytTech.Concurrency
-open HoytTech.Concurrency.Agent
 open HoytTech.Concurrency.Agent.AgentFunctor
 open NUnit.Framework
 
