@@ -70,10 +70,10 @@ module Persisted =
                         setResult(r)
                     | ChangeState(newState) ->
                         let oldState = t.currentState
-                        let! c = t.stateChange (Exit newState) !t.context event
+                        let! c = t.stateChange (Exit oldState) !t.context event
                         t.context := c
                         SkipQueue.reset t.queue
-                        let! c = t.stateChange (Entry oldState) !t.context event
+                        let! c = t.stateChange (Entry newState) !t.context event
                         t.context := c
                         setResult(Ran c)
                     | Action act ->
