@@ -30,4 +30,6 @@ module Persisted =
     
     val getCtx: t<'s, 'c, 'e> -> 'c
     
+    val getState: t<'s, 'c, 'e> -> 's
+    
     

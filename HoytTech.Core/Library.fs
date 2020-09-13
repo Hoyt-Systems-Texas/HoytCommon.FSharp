@@ -1,5 +1,8 @@
 ﻿namespace HoytTech.Core
 
+open System
+open System.Security.Cryptography
+
 module Errors =
     type t = List<string>
 
@@ -37,4 +40,14 @@ module PowerOf2 =
         
     let isPowerOfTwo value =
         HoytTech.CSharp.PowerOfTwo.IsPowerOfTwo value
-  
+ 
+ module Security =
+     
+     let randomNumberGenerator = RNGCryptoServiceProvider()
+     
+     /// Generates a GUID where all of the digits are from a secure number generator.
+     let secureGuid () =
+         let bytes = Array.zeroCreate 32
+         randomNumberGenerator.GetBytes(bytes)
+         Guid(bytes)
+         

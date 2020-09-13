@@ -64,6 +64,7 @@ type StateMachineTest () =
             | Persisted.Ran ctx ->
                 Assert.IsTrue(ctx.entryRan)
                 Assert.IsTrue(ctx.exitRan)
+                Assert.AreEqual(TestStateMachine.State2, Persisted.getState state)
             | _ ->
                 Assert.Fail("Unexpected result.")
         } |> Async.RunSynchronously

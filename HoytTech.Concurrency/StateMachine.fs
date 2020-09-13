@@ -33,7 +33,7 @@ module Persisted =
         context: 'c ref
         queue: SkipQueue.t<'e * Option<TaskCompletionSource<result<'c>>>>
         runState: state ref
-        currentState: 's
+        currentState: 's ref
         stateChange: handleStateChange<'s, 'c, 'e>
         whatAction: whatAction<'s, 'c, 'e>
         lastRan: int64 ref
@@ -44,7 +44,7 @@ module Persisted =
             context = ref ctx
             runState = ref Idle
             queue = SkipQueue.make queueSize skipSize
-            currentState = state
+            currentState = ref state
             stateChange = handleState
             whatAction = action
             lastRan = ref <| Clock.timeInFrequency ()
@@ -60,7 +60,7 @@ module Persisted =
                         match task with
                         | Some (task) -> task.SetResult(r)
                         | None -> ()
-                    match t.whatAction t.currentState event with
+                    match t.whatAction !t.currentState event with
                     | Defer ->
                         let r =
                             if not <| SkipQueue.defer t.queue (event, task) then
@@ -69,12 +69,13 @@ module Persisted =
                                 Deferred
                         setResult(r)
                     | ChangeState(newState) ->
-                        let oldState = t.currentState
+                        let oldState = !t.currentState
                         let! c = t.stateChange (Exit oldState) !t.context event
                         t.context := c
                         SkipQueue.reset t.queue
                         let! c = t.stateChange (Entry newState) !t.context event
                         t.context := c
+                        t.currentState := newState
                         setResult(Ran c)
                     | Action act ->
                         let! c = act !t.context event
@@ -102,3 +103,6 @@ module Persisted =
             
     let getCtx t =
         !t.context
+    
+    let getState t =
+        !t.currentState
