@@ -1,6 +1,5 @@
 module HoytTech.Concurrency.Test.StateMachineTest
 
-open System.Threading.Tasks
 open NUnit.Framework
 open HoytTech.Concurrency.StateMachine
 
@@ -9,6 +8,7 @@ module TestStateMachine =
     type context = {
         entryRan: bool
         exitRan: bool
+        defer: bool
     }
     
     type state =
@@ -42,7 +42,7 @@ module TestStateMachine =
         | (State2, Event1) -> Persisted.Ignore
         | (State3, Event1) -> Persisted.Ignore
 
-        | (State1, Event2) -> Persisted.ChangeState State3
+        | (State1, Event2) -> Persisted.Defer
         | (State2, Event2) -> Persisted.Ignore
         | (State3, Event2) -> Persisted.Ignore
 
@@ -53,8 +53,9 @@ type StateMachineTest () =
     [<Test>]
     member this.StateMachineTest() =
         let context = {
-            TestStateMachine.context.entryRan = false
-            TestStateMachine.context.exitRan = false
+            TestStateMachine.entryRan = false
+            TestStateMachine.exitRan = false
+            TestStateMachine.defer = false
         }
         let state = Persisted.make context 32 32 TestStateMachine.State1 TestStateMachine.handleStateChange TestStateMachine.handleAction
         async {
@@ -65,4 +66,17 @@ type StateMachineTest () =
                 Assert.IsTrue(ctx.exitRan)
             | _ ->
                 Assert.Fail("Unexpected result.")
+        } |> Async.RunSynchronously
+        
+    [<Test>]
+    member this.DeferTest() =
+        let context = {
+            TestStateMachine.entryRan = false
+            TestStateMachine.exitRan = false
+            TestStateMachine.defer = false
+        }
+        let state = Persisted.make context 32 32 TestStateMachine.State1 TestStateMachine.handleStateChange TestStateMachine.handleAction
+        async {
+            let! result = Persisted.send state TestStateMachine.Event2 |> Async.AwaitTask
+            Assert.AreEqual(Persisted.result<TestStateMachine.context>.Deferred, result)
         } |> Async.RunSynchronously

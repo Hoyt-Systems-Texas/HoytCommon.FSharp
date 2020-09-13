@@ -16,7 +16,7 @@ module Persisted =
         | Entry of 's
         | Exit of 's
         
-    type Result<'c> = 
+    type result<'c> = 
         | Ran of 'c
         | Full
         | Deferred 
@@ -26,7 +26,7 @@ module Persisted =
     
     val make : 'c -> int32 -> int32 -> 's -> handleStateChange<'s, 'c, 'e> -> whatAction<'s, 'c, 'e> -> t<'s, 'c, 'e>
     
-    val send : t<'s, 'c, 'e> -> 'e -> Task<Result<'c>>
+    val send : t<'s, 'c, 'e> -> 'e -> Task<result<'c>>
     
     val getCtx: t<'s, 'c, 'e> -> 'c
     

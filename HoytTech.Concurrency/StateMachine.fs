@@ -21,7 +21,7 @@ module Persisted =
         | Entry of 's
         | Exit of 's
         
-    type Result<'c> = 
+    type result<'c> = 
         | Ran of 'c
         | Full
         | Deferred
@@ -31,7 +31,7 @@ module Persisted =
     
     type t<'s, 'c, 'e> = {
         context: 'c ref
-        queue: SkipQueue.t<'e * Option<TaskCompletionSource<Result<'c>>>>
+        queue: SkipQueue.t<'e * Option<TaskCompletionSource<result<'c>>>>
         runState: state ref
         currentState: 's
         stateChange: handleStateChange<'s, 'c, 'e>
