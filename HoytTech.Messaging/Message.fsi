@@ -1,0 +1,2 @@
+module HoytTech.Messaging.Message
+

@@ -6,10 +6,16 @@
 
     <ItemGroup>
         <Compile Include="Library.fs" />
+        <Compile Include="Message.fsi" />
+        <Compile Include="Message.fs" />
         <Compile Include="Connection.fsi" />
         <Compile Include="Connection.fs" />
         <Compile Include="Processor.fsi" />
         <Compile Include="Processor.fs" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\HoytTech.Concurrency\HoytTech.Concurrency.fsproj" />
     </ItemGroup>
 
 </Project>

@@ -1,25 +1,29 @@
 module HoytTech.Messaging.Connection
 
 open System
+open HoytTech.Concurrency.Queue
 
 module Context =
-    
-    type state<'a> =
-        | Pending
-        | NotAuthenticated
-        | Authenticated of 'a
-        | Timeout
-        
-    type event<'a> =
-        | Ping
-        | Pong
-        | TimedOut
-        | AuthenticationTimeout
-        | Authenticated of 'a
     
     type t<'m, 'a> = {
         connectionId: Guid
         lastSeen: int64 ref
         metadata: 'm
-        state: state<'a>
+    }
+    
+module IncomingConnection =
+    
+    type state<'a> =
+        | Pending
+        | Connected
+        
+    type event<'a> =
+        | Ping
+        | Pong
+    
+    type t<'m, 'a> = {
+        state: state<'a> ref
+        ctx: Context.t<'m, 'a> ref
+        missedHeartbeats: int32 ref
+        queue: Mpmc.t<event<'a>>
     }
