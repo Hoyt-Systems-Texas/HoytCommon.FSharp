@@ -11,5 +11,9 @@
     &lt;TestId&gt;NUnit3x::86EA03DC-758B-4137-BCD1-AE0DBB8AA059::.NETCoreApp,Version=v3.1::HoytTech.Concurrency.Test.AgentTest+AgentTest.AgentRunTest&lt;/TestId&gt;
     &lt;TestId&gt;NUnit3x::86EA03DC-758B-4137-BCD1-AE0DBB8AA059::.NETCoreApp,Version=v3.1::HoytTech.Concurrency.Test.StateMachineTest+StateMachineTest.StateMachineTest&lt;/TestId&gt;
     &lt;TestId&gt;NUnit3x::86EA03DC-758B-4137-BCD1-AE0DBB8AA059::.NETCoreApp,Version=v3.1::HoytTech.Concurrency.Test.StateMachineTest+StateMachineTest.DeferTest&lt;/TestId&gt;
+    &lt;TestId&gt;NUnit3x::E4A40076-A1F3-496A-AD38-4B93576B560A::.NETCoreApp,Version=v3.1::HoytTech.Messaging.Test.MakeBodyTest&lt;/TestId&gt;
+    &lt;TestId&gt;NUnit3x::E4A40076-A1F3-496A-AD38-4B93576B560A::.NETCoreApp,Version=v3.1::HoytTech.Messaging.Test.EnvelopeTest&lt;/TestId&gt;
+    &lt;TestId&gt;NUnit3x::E4A40076-A1F3-496A-AD38-4B93576B560A::.NETCoreApp,Version=v3.1::HoytTech.Messaging.Test.EnvelopeEventTest&lt;/TestId&gt;
+    &lt;TestId&gt;NUnit3x::E4A40076-A1F3-496A-AD38-4B93576B560A::.NETCoreApp,Version=v3.1::HoytTech.Messaging.Test.EnvelopeSmallTest&lt;/TestId&gt;
   &lt;/TestAncestor&gt;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
